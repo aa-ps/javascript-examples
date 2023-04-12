@@ -1,25 +1,50 @@
-// Pure JavaScript Example
-// No HTML
-
-// Declaring variables
-let num = 10;
-
-// Declaring functions
-function square(n) {
-  return n * n;
+// Normal Defined Function
+function add(num1, num2) {
+  return num1 + num2;
 }
 
-// Assigning variables to function return value
-let squaredNum = square(num);
-
-// Use a conditional statement to check if the squared number is greater than 100
-if (squaredNum > 100) {
-  console.log("The squared number is greater than 100");
-} else {
-  console.log("The squared number is less than or equal to 100");
+// Function as a variable
+const subtract = function(num1, num2) {
+  return num1 - num2;
 }
 
-// Use a loop to print the numbers from 1 to 10
-for (let i = 1; i <= 10; i++) {
-  console.log(i);
+// Arrow function with braces
+const  multiply = (num1, num2) => {
+  return num1 * num2;
 }
+
+// Arrow function without braces
+const divide = (num1,num2) => num1/num2;
+
+// Two random integers between 0 and 100
+let num1 = Math.floor(Math.random() * 100);
+let num2 = Math.floor(Math.random() * 100);
+
+// Random operator to use
+let operator = ["*", "/", "+", "-"][Math.floor(Math.random() * 4)];
+
+// Holds calculated result
+let result;
+
+switch (operator) {
+  case "+":
+    result = add(num1, num2);
+    break;
+  case "-":
+    result = subtract(num1, num2);
+    break;
+  case "*":
+    result = multiply(num1, num2);
+    break;
+  case "/":
+    result = divide(num1, num2);
+    break;
+  default:
+    result = "Invalid operator";
+}
+
+// Substitute variable values using ${} with backticks.
+console.log(`\n ${num1} ${operator} ${num2} = ${result.toFixed(2)} \n`);
+console.log(`num1 : ${num1}`);
+console.log(`num2 : ${num2}`);
+console.log(`operator : ${operator}\n`);
