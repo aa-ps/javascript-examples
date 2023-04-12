@@ -39,7 +39,7 @@ button {
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;
-  color: #fff;
+  color: #ffff;
   background-color: #0077c2;
   cursor: pointer;
   outline: none;
@@ -59,6 +59,8 @@ button.all-clear {
 
 button.equal-sign {
   background-color: #4caf50;
+  grid-column-start: 1;
+  grid-column-end: 5;
 }
 
 button.decimal {
