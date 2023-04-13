@@ -1,9 +1,9 @@
-// Import package
+// Import packages
 const express = require("express");
 const sqlite3 = require('sqlite3');
 const { open } = require("sqlite");
 
-// Setup app to use ejs
+// Setup app to use ejs and handle post requests
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
@@ -26,8 +26,9 @@ app.get("/", async (req, res) => {
   });
 });
 
+// Add student to database
 app.post("/addStudent", async (req, res) => {
-  const {name, major} = req.body;
+  const { name, major } = req.body;
   await db.run("INSERT INTO students (name, major) VALUES (?,?)", [name, major]);
   res.redirect("/");
 })
